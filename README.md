@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Build a Responsive Portfolio Website Advanced Animations
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+First, let’s create a new project. Then we’ll start with setting up inside.
 
-In the project directory, you can run:
+```
+npx create-react-app profile-portfolio-react
+cd profile-portfolio-react
+```
 
-### `npm start`
+Next, install more [bootstrap-react](https://www.npmjs.com/package/react-bootstrap) and [bootstrap](https://www.npmjs.com/package/bootstrap) library
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+npm i react-bootstrap bootstrap
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup Prettier and ESLint
 
-### `npm test`
+1. Cài đặt **prettier** là formatter mặc định cho VS Code và format on save
+2. Tạo file **.editorconfig**
+3. Tạo file **.prettierrc** để config prettier, việc này bảo đảm đem project này cho các máy khác nhau vẫn giữ được config
+4. Cài đặt devDependencies hỗ trợ **prettier** và **eslint**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm i prettier eslint-plugin-prettier eslint-config-prettier -D
+```
 
-### `npm run build`
+5. Tạo file **.eslintrc**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```json
+{
+  "extends": ["react-app", "prettier"],
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "warn", 
+      {
+        "arrowParens": "always",
+        "bracketSameLine": false,
+        "bracketSpacing": true,
+        "embeddedLanguageFormatting": "auto",
+        "htmlWhitespaceSensitivity": "css",
+        "insertPragma": false,
+        "jsxSingleQuote": false,
+        "printWidth": 120,
+        "proseWrap": "preserve",
+        "quoteProps": "as-needed",
+        "requirePragma": false,
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "all",
+        "useTabs": false,
+        "vueIndentScriptAndStyle": false
+      }
+    ]
+  }
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. Config scripts của **package.json**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```json
+{
+    "lint": "eslint --ext js,jsx src/",
+    "lint:fix": "eslint --fix --ext js,jsx src/",
+    "prettier": "prettier --check \"src/**/(**.jsx|*.js|*.scss|*.css)\"",
+    "prettier:fix": "prettier --write \"src/**/(**.jsx|*.js|*.scss|*.css)\""
+}
+```
 
-### `npm run eject`
+## Navigation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Code preview:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+import { useState, useEffect } from 'react'
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+const [activeLink, setActiveLink] = useState('home')
+  const [scrolled, setScrolled] = useState(false)
 
-## Learn More
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    window.addEventListener('scroll', onScroll)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
-### Code Splitting
+  const onUpdateActiveLink = value => {
+    setActiveLink(value)
+  }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+                                          ...
+```

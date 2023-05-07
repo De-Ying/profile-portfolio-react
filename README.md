@@ -14,6 +14,7 @@ Next, install more [bootstrap-react](https://www.npmjs.com/package/react-bootstr
 ```
 npm i react-bootstrap bootstrap
 npm i react-bootstrap-icons
+npm i react-multi-carousel
 ```
 
 ## Setup Prettier and ESLint
@@ -158,5 +159,48 @@ export const Banner = () => {
       setDelta(500)
     }
   }
+
+  ...
+}
+```
+
+## Skills & Slider
+
+Code preview:
+
+```js
+import { Col, Container, Row } from 'react-bootstrap'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
+import meter1 from '../assets/img/meter1.svg'
+import meter2 from '../assets/img/meter2.svg'
+import meter3 from '../assets/img/meter3.svg'
+import colorSharp from "../assets/img/color-sharp.png"
+```
+
+```js
+export const Skills = () => {
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  }
+
+  ...
+}
 ```
 

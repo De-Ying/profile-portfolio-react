@@ -227,5 +227,14 @@ npm i react-on-screen
 npm i animate.css --save
 ```
 
+## Fixed & Updated UI/UX
+
+```
+npm i react-router-dom
+npm i react-router-hash-link
+
+npm i react-responsive-carousel
+```
+
 
 

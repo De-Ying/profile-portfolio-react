@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.react-multiple-carousel__arrow--left {
+  left: calc(4% - 15px) !important;
+  top: calc(4% + 50px);
+}
+
+.react-multiple-carousel__arrow--right {
+  right: calc(4% - 15px) !important;
+  top: calc(4% + 50px);
+}

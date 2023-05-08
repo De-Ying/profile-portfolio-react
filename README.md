@@ -204,3 +204,7 @@ export const Skills = () => {
 }
 ```
 
+## Projects 
+
+
+

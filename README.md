@@ -214,6 +214,9 @@ Set up a server named server.js:
 ```
 npm i express cors nodemailer
 ```
+## Newsletter & Footer
+
+Set up React subscribe form for Mailchimp: [Mailchimp](https://mailchimp.com/)
 
 
 

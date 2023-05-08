@@ -22,7 +22,7 @@ export const Contact = () => {
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault()
     setButtonText('Sending...')
 
@@ -34,7 +34,7 @@ export const Contact = () => {
       body: JSON.stringify(formDetails)
     })
 
-    setButtonText("Send")
+    setButtonText('Send')
     let result = responce.json()
     setFormDetails(formInitialDetails)
     if (result.code === 200) {

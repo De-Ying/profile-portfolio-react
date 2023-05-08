@@ -15,6 +15,7 @@ Next, install more [bootstrap-react](https://www.npmjs.com/package/react-bootstr
 npm i react-bootstrap bootstrap
 npm i react-bootstrap-icons
 npm i react-multi-carousel
+npm i react-mailchimp-subscribe
 ```
 
 ## Setup Prettier and ESLint
@@ -205,6 +206,14 @@ export const Skills = () => {
 ```
 
 ## Projects 
+
+## Contact
+
+Set up a server named server.js:
+
+```
+npm i express cors nodemailer
+```
 
 
 

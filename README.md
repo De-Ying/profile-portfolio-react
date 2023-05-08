@@ -218,5 +218,14 @@ npm i express cors nodemailer
 
 Set up React subscribe form for Mailchimp: [Mailchimp](https://mailchimp.com/)
 
+## Animations
+
+Setting up animations via the animate style library [animate-style](https://animate.style/)
+
+```
+npm i react-on-screen
+npm i animate.css --save
+```
+
 
 
